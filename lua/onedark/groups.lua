@@ -5,18 +5,17 @@ local M = {}
 M.builtin = {
   ColorColumn = { fg = colors.fg, bg = colors.bg },
   Conceal = { fg = colors.mono_3, bg = colors.bg },
-  CurSearch = { fg = colors.fg, bg = colors.accent },
+  CurSearch = { fg = colors.fg, bg = colors.diff_text },
   Cursor = { fg = colors.fg, bg = colors.accent },
   lCursor = { fg = colors.fg, bg = colors.accent },
   CursorIM = { fg = colors.fg, bg = colors.accent },
   CursorColumn = { bg = colors.line },
   CursorLine = { bg = colors.line },
   Directory = { fg = colors.hue_1 },
-  DiffAdd = { fg = colors.added },
-  DiffChange = { fg = colors.renamed },
-  DiffDelete = { fg = colors.removed },
-  -- DiffText = {},
-  -- DiffTextAdd = {},
+  DiffAdd = { bg = colors.diff_added },
+  DiffChange = { bg = colors.diff_modified },
+  DiffDelete = { bg = colors.diff_removed },
+  DiffText = { bg = colors.diff_text },
   EndOfBuffer = { fg = colors.bg, bg = colors.bg },
   TermCursor = { fg = colors.fg, bg = colors.accent },
   OkMsg = { fg = colors.hue_4 },
@@ -279,7 +278,7 @@ M.lsp = {
   ['@lsp.type.function'] = { fg = colors.hue_2 },
   ['@lsp.type.interface'] = { fg = colors.hue_62 },
   ['@lsp.type.keyword'] = { fg = colors.hue_3 },
-  ['@lsp.type.macro'] = { bg = colors.hue_3 },
+  ['@lsp.type.macro'] = { fg = colors.hue_2 },
   ['@lsp.type.method'] = { fg = colors.hue_2 },
   ['@lsp.type.modifier'] = { bg = colors.hue_2 },
   ['@lsp.type.namespace'] = { fg = colors.hue_6 },
@@ -367,9 +366,11 @@ M.lsp = {
   ['typescriptUnion'] = { fg = colors.fg },
 
   -- Ruby
+  ['@lsp.type.class.ruby'] = { fg = colors.hue_6 },
   ['rubyBlockParameterList'] = { fg = colors.hue_6 },
   ['rubyClassBlock'] = { },
   ['rubyClassName'] = { fg = colors.hue_6 },
+  ['rubyClassVariable'] = { fg = colors.hue_5 },
   ['rubyConstant'] = { fg = colors.hue_6 },
   ['rubyHeredocDelimiter'] = { fg = colors.hue_3 },
   ['rubyInclude'] = { fg = colors.hue_2 },
@@ -377,8 +378,19 @@ M.lsp = {
   ['rubyInterpolationDelimiter'] = { fg = colors.hue_5 },
   ['rubyKeywordAsMethod'] = { fg = colors.hue_2 },
   ['rubyMethodBlock'] = { fg = colors.fg },
+  ['rubyPredefinedConstant'] = { fg = colors.hue_6 },
+  ['rubyPseudoVariable'] = { fg = colors.hue_3 },
   ['rubyRegexp'] = { fg = colors.hue_1 },
   ['rubySymbol'] = { fg = colors.hue_1 },
+
+  -- YAML
+  ['yamlAlias'] = { fg = colors.hue_62 },
+  ['yamlAnchor'] = { fg = colors.hue_62 },
+  ['yamlBlockCollectionItemStart'] = { fg = colors.fg },
+  ['yamlBlockMappingDelimiter'] = { fg = colors.fg },
+  ['yamlBlockMappingKey'] = { fg = colors.hue_5 },
+  ['yamlBlockMappingMerge'] = { fg = colors.hue_5 },
+  ['yamlPlainScalar'] = { fg = colors.hue_4 },
 }
 
 M.plugins = {
@@ -386,6 +398,14 @@ M.plugins = {
   ['IblIndent'] = { fg = colors.guide },
   ['IblWhitespace'] = { fg = colors.guide },
   ['IblScope'] = { fg = colors.mono_3 },
+
+  -- BlinkCmp
+  ['BlinkCmpMenuBorder'] = { fg = colors.accent },
+  ['BlinkCmpDoc'] = { bg = colors.line },
+  ['BlinkCmpDocBorder'] = { fg = colors.accent },
+  ['BlinkCmpDocSeparator'] = { fg = colors.accent },
+  ['BlinkCmpSignatureHelp'] = { bg = colors.line },
+  ['BlinkCmpSignatureHelpBorder'] = { fg = colors.accent },
 }
 
 return M
