@@ -24,7 +24,7 @@ return {
     guide     = '#3c4049',
 
     -- Extra -------------------------------
-    line      = '#292d36',
+    line      = '#2b3038',
     added     = '#43d08a',
     renamed   = '#33a0ff',
     modified  = '#e0c285',

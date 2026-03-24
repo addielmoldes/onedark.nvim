@@ -75,8 +75,8 @@ M.builtin = {
   VisualNOS = { bg = colors.selection },
   Whitespace = { sp = colors.mono_3, undercurl = true },
   -- WildMenu = {},
-  -- WinBar = {},
-  -- WinBarNC = {},
+  WinBar = { bg = colors.line },
+  WinBarNC = { bg = colors.line },
 }
 
 -- Builtin syntax groups
@@ -152,7 +152,7 @@ M.diagnostic = {
   DiagnosticSignInfo = { fg = colors.hue_1 },
   DiagnosticSignHint = { fg = colors.hue_3 },
   DiagnosticSignOk = { fg = colors.hue_4 },
-  DiagnosticDeprecated = { fg = colors.hue_5 }, -- TODO; check original theme spec
+  DiagnosticDeprecated = { fg = colors.hue_5, sp = colors.hue_5, strikethrough = true }, -- TODO; check original theme spec
   DiagnosticUnnecessary = { fg = colors.mono_3 }
 }
 
@@ -265,7 +265,7 @@ M.treesitter = {
   ['@variable.parameter.builtin'] = { fg = colors.hue_5 },
   ['@variable.member'] = { fg = colors.hue_5 },
 
-  ['@property'] = { fg = colors.hue_6}
+  ['@property'] = { fg = colors.hue_5}
 }
 
 M.lsp = {
@@ -296,6 +296,10 @@ M.lsp = {
   ['@lsp.mod.async'] = { fg = colors.hue_2 },
   ['@lsp.mod.deprecated'] = { fg = colors.modified, bg = colors.line },
   ['@lsp.mod.modification'] = { bg = colors.mono_2 },
+}
+
+M.langs = {
+  -- Angular
 
   -- HTML
   ['htmlTag'] = { fg = colors.fg },
@@ -317,20 +321,26 @@ M.lsp = {
   ['cssTagName'] = { fg = colors.hue_5 },
 
   -- SASS
-  ['sassClass'] = { fg = colors.fg },
+  ['sassClass'] = { fg = colors.hue_6 },
   ['sassClassChar'] = { fg = colors.hue_6 },
   ['sassId'] = { fg = colors.hue_2 },
   ['sassIdChar'] = { fg = colors.hue_2 },
 
   -- JavaScript
   ['javaScriptBraces'] = { fg = colors.fg },
+  ['javaScriptEmbed'] = { fg = colors.fg },
+  ['javaScriptIdentifier'] = { fg = colors.hue_3 },
 
   -- JSON
   ['jsonBraces'] = { fg = colors.fg },
   ['jsonKeyword'] = { fg = colors.hue_5 },
 
   -- Typescript
+  ['@constant.typescript'] = { fg = colors.hue_5 },
+  ['@constant.builtin.typescript'] = { fg = colors.hue_3 },
   ['@lsp.type.type.typescript'] = { fg = colors.hue_62 },
+  ['@lsp.type.variable.typescript'] = { fg = colors.hue_5 },
+  ['@type.typescript'] = { fg = colors.hue_62 },
   ['typescriptAbstract'] = { fg = colors.hue_3 },
   ['typescriptAmbientDeclaration'] = { fg = colors.hue_3 },
   ['typescriptArrowFunc'] = { fg = colors.fg },
@@ -355,6 +365,7 @@ M.lsp = {
   ['typescriptMember'] = { fg = colors.hue_5 },
   ['typescriptMethodAccessor'] = { fg = colors.hue_3 },
   ['typescriptObjectLabel'] = { fg = colors.hue_5 },
+  ['typescriptOperator'] = { fg = colors.hue_3 },
   ['typescriptProp'] = { fg = colors.hue_2 },
   ['typescriptRegexpBoundary'] = { fg = colors.hue_3 },
   ['typescriptRegexpCharClass'] = { fg = colors.hue_6 },
@@ -370,7 +381,10 @@ M.lsp = {
   ['typescriptUnion'] = { fg = colors.fg },
 
   -- Ruby
+  ['@constant.builtin.ruby'] = { fg = colors.hue_3 },
   ['@lsp.type.class.ruby'] = { fg = colors.hue_6 },
+  ['@type.ruby'] = { fg = colors.hue_6 },
+  ['@string.special.symbol.ruby'] = { fg = colors.hue_1 },
   ['rubyBlockParameterList'] = { fg = colors.hue_6 },
   ['rubyClassBlock'] = { },
   ['rubyClassName'] = { fg = colors.hue_6 },
@@ -394,6 +408,8 @@ M.lsp = {
   ['yamlBlockMappingDelimiter'] = { fg = colors.fg },
   ['yamlBlockMappingKey'] = { fg = colors.hue_5 },
   ['yamlBlockMappingMerge'] = { fg = colors.hue_5 },
+  ['yamlBool'] = { fg = colors.hue_3 },
+  ['yamlNull'] = { fg = colors.hue_3 },
   ['yamlPlainScalar'] = { fg = colors.hue_4 },
 }
 
